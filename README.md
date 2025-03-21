@@ -1,6 +1,37 @@
 # LangChain, LangGraph & LangSmith
 by Gaurav Kabra
 
+We discussed building a simple AI agent [here](https://github.com/kabragaurav/ai-agent).
+
+But to do it at scale, in production, we need above frameworks.
+
+## LangChain
+
+In production, we might be calling different LLM vendors’s APIs (such as OpenAI, Gemini, Claude). They might have different endpoints and signature of request and response also differ. LangChain provides a uniform interface to call these APIs.
+Plus it has Community Packages that provide utility methods. For example, you want to feed a PDF or a blog of 1 lac tokens to LLM. Now due to context window limit, you cannot load entire PDF at once. You will need to write logic to chunk it. That utility is already found in community packages.
+
+It is useful where flow is static (well-known) such as on click of button, summarize the entire web page.
+
+
+## LangGraph
+
+Now some flows are not static (can start and take diverge paths) like in a flight bot:
+
+
+```
+Customer1: I want to do a booking
+Customer2: What is status of my flight?
+Customer3: I want to do a cancellation
+```
+
+We can build a graph of all such possibilities.
+
+
+
+## LangSmith
+
+Collects telemetry which helps debug and track performance.
+
 
 ## Setup From Scratch
 
